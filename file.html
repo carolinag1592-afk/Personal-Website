@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jordan Rivera — Marketing Portfolio</title>
+<meta name="description" content="Growth marketer specializing in SEO, paid media, and lifecycle campaigns that drive measurable results." />
+<style>
+  :root {
+    --bg: #0e0f13;
+    --surface: #16181f;
+    --surface-2: #1e2129;
+    --text: #eef0f4;
+    --muted: #9aa0ad;
+    --accent: #6c5ce7;
+    --accent-2: #00cec9;
+    --border: #262a34;
+    --radius: 14px;
+    --max: 1080px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  section { padding: 88px 0; }
+
+  /* Nav */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(14,15,19,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; letter-spacing: -0.02em; font-size: 1.1rem; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+  /* Hero */
+  .hero { padding: 120px 0 96px; }
+  .eyebrow {
+    display: inline-block; font-size: 0.8rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--accent-2); margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 22px; max-width: 15ch;
+  }
+  .hero p { font-size: 1.15rem; color: var(--muted); max-width: 55ch; margin-bottom: 34px; }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 13px 26px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem; transition: transform 0.15s, opacity 0.2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .stat .num { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .stat .num span { color: var(--accent-2); }
+  .stat .label { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+  /* Section headings */
+  .sec-head { margin-bottom: 44px; }
+  .sec-head .eyebrow { margin-bottom: 12px; }
+  .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color 0.2s, transform 0.2s; }
+  .skill:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .skill .icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .skill h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .skill p { color: var(--muted); font-size: 0.92rem; }
+
+  /* Work / case studies */
+  .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card .thumb {
+    height: 180px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    font-weight: 700; color: #fff; font-size: 1.1rem; opacity: 0.92;
+  }
+  .card-body { padding: 24px; }
+  .tag {
+    display: inline-block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent-2); margin-bottom: 10px;
+  }
+  .card-body h3 { font-size: 1.2rem; margin-bottom: 8px; }
+  .card-body p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .result { display: flex; gap: 20px; border-top: 1px solid var(--border); padding-top: 14px; }
+  .result div span { display: block; }
+  .result .r-num { font-weight: 700; color: var(--text); }
+  .result .r-lbl { font-size: 0.78rem; color: var(--muted); }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; }
+  .about .portrait {
+    aspect-ratio: 1; border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--surface-2), var(--accent));
+    display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 700; color: #fff;
+  }
+  .about p { color: var(--muted); margin-bottom: 16px; }
+  .about strong { color: var(--text); }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; margin-bottom: 14px; }
+  .contact p { color: var(--muted); max-width: 45ch; margin: 0 auto 28px; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0; }
+  .foot { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.88rem; flex-wrap: wrap; gap: 12px; }
+  .foot a { color: var(--muted); }
+  .foot a:hover { color: var(--text); }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Jordan<span>.</span></div>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Growth &amp; Digital Marketing</span>
+      <h1>I help brands turn attention into measurable revenue.</h1>
+      <p>I'm Jordan Rivera, a marketer specializing in SEO, paid media, and lifecycle campaigns. Over the past six years I've built strategies that scale traffic, cut acquisition costs, and actually move the numbers that matter.</p>
+      <div class="btn-row">
+        <a href="#work" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="num">3.4<span>x</span></div><div class="label">Avg. ROAS achieved</div></div>
+        <div class="stat"><div class="num">+180<span>%</span></div><div class="label">Organic traffic growth</div></div>
+        <div class="stat"><div class="num">$2.1<span>M</span></div><div class="label">Ad spend managed</div></div>
+        <div class="stat"><div class="num">40<span>+</span></div><div class="label">Campaigns launched</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What I do</span>
+        <h2>Full-funnel marketing expertise</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><div class="icon">🔍</div><h3>SEO &amp; Content</h3><p>Technical audits, keyword strategy, and content that ranks and converts across the funnel.</p></div>
+        <div class="skill"><div class="icon">🎯</div><h3>Paid Media</h3><p>Google, Meta, and LinkedIn ads engineered for efficient, scalable acquisition.</p></div>
+        <div class="skill"><div class="icon">✉️</div><h3>Lifecycle &amp; Email</h3><p>Automated flows and segmentation that nurture leads into loyal customers.</p></div>
+        <div class="skill"><div class="icon">📊</div><h3>Analytics &amp; CRO</h3><p>GA4, dashboards, and A/B testing to make every decision data-backed.</p></div>
+        <div class="skill"><div class="icon">📱</div><h3>Social &amp; Brand</h3><p>Organic strategy and creative direction that builds a distinct, trusted voice.</p></div>
+        <div class="skill"><div class="icon">🚀</div><h3>Strategy</h3><p>Positioning, GTM plans, and roadmaps that align marketing with business goals.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" style="background:var(--surface-2);">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Selected work</span>
+        <h2>Case studies &amp; results</h2>
+      </div>
+      <div class="work-grid">
+
+        <article class="card">
+          <div class="thumb">SaaS Growth</div>
+          <div class="card-body">
+            <span class="tag">SEO · Content</span>
+            <h3>Scaling organic for a B2B SaaS</h3>
+            <p>Rebuilt the content engine and site architecture, targeting high-intent bottom-of-funnel keywords.</p>
+            <div class="result">
+              <div><span class="r-num">+212%</span><span class="r-lbl">Organic sessions</span></div>
+              <div><span class="r-num">+68%</span><span class="r-lbl">Demo signups</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">DTC Launch</div>
+          <div class="card-body">
+            <span class="tag">Paid Media</span>
+            <h3>DTC product launch on Meta</h3>
+            <p>Built a full-funnel Meta strategy from creative testing to retargeting for a new consumer brand.</p>
+            <div class="result">
+              <div><span class="r-num">4.1x</span><span class="r-lbl">ROAS</span></div>
+              <div><span class="r-num">-34%</span><span class="r-lbl">CAC</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">Email Revamp</div>
+          <div class="card-body">
+            <span class="tag">Lifecycle · Email</span>
+            <h3>Lifecycle overhaul for e-commerce</h3>
+            <p>Redesigned welcome, cart, and win-back flows with segmentation and dynamic content.</p>
+            <div class="result">
+              <div><span class="r-num">+27%</span><span class="r-lbl">Email revenue</span></div>
+              <div><span class="r-num">+3.2pt</span><span class="r-lbl">Open rate</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">Rebrand</div>
+          <div class="card-body">
+            <span class="tag">Strategy · Brand</span>
+            <h3>GTM strategy for a fintech rebrand</h3>
+            <p>Led positioning, messaging, and a coordinated launch across paid, organic, and PR.</p>
+            <div class="result">
+              <div><span class="r-num">+140%</span><span class="r-lbl">Brand search</span></div>
+              <div><span class="r-num">1.2M</span><span class="r-lbl">Launch reach</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about">
+      <div class="portrait">JR</div>
+      <div>
+        <span class="eyebrow">About me</span>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-0.02em;margin:12px 0 20px;">Marketer, builder, data nerd.</h2>
+        <p>I've spent the last <strong>six years</strong> working across startups and agencies, running campaigns for SaaS, DTC, and fintech clients. I care about the whole picture — from the first ad impression to the metric on the dashboard three months later.</p>
+        <p>My approach is simple: <strong>test relentlessly, follow the data, and never confuse activity with results.</strong> I'm happiest when I'm connecting a creative idea to a line moving up and to the right.</p>
+        <p>Outside of work you'll find me over-analyzing coffee brew ratios and reading way too many growth teardowns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="background:var(--surface-2);">
+    <div class="wrap contact">
+      <span class="eyebrow">Let's talk</span>
+      <h2>Have a project in mind?</h2>
+      <p>I'm open to freelance work, contracts, and full-time roles. Drop me a line and let's see what we can grow together.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="mailto:hello@jordanrivera.com" class="btn btn-primary">Email me</a>
+        <a href="#" class="btn btn-ghost">Download resume</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Jordan Rivera. Built with care.</span>
+    <span>
+      <a href="#">LinkedIn</a> ·
+      <a href="#">Twitter/X</a> ·
+      <a href="#">Email</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
